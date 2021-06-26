@@ -1,7 +1,8 @@
 <!-------------------------------------------DATABASE CONNECTION--------------------------------------------------------->
 
-<?php                          
-include_once "database_scripts/01_database_connection.php";       
+<?php    
+session_start();                      
+include_once "database_scripts/01_database_connection.php";    
 ?>
 
 <!------------------------------------------------HEADER---------------------------------------------------------->
@@ -36,7 +37,7 @@ include_once "database_scripts/01_database_connection.php";
 <!--------------------------------------CHORD SEARCH DROPDOWN MENU---------------------------------------------------------->
 
 <form action="index.php" method="POST">
-  <label for="cars">Look for a chord</label>
+  <label>Look for a chord</label>
   <select name="chords" id="chords">
   <?php
          $sql="SELECT DISTINCT I,II,III,IV,V,VI,VII,VIII FROM songs_chords;";      
@@ -241,6 +242,10 @@ include_once "database_scripts/01_database_connection.php";
 
 </div>
 
+<!-------------------------------- Snackbar----------------------------------------------------- -->
+<div id="snackbar"></div>
+
+
 <!------------------------------------------ JavaScript------------------------------------------------->
      
 <script>
@@ -285,6 +290,30 @@ window.onclick = function(event) {
   }
 }
 
+////////////////////////////////////////////////SnackBar Function//////////////////////////////////////////////////
+
+function SnackbarMessage(sessionVariable) {
+  if (sessionVariable=="add"){
+    var x = document.getElementById("snackbar");
+    x.innerHTML="Entry added succesfully"
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+  }
+  if (sessionVariable=="delete"){
+    var x = document.getElementById("snackbar");
+    x.innerHTML="Entry deleted succesfully"
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+  }
+  if (sessionVariable=="update"){
+    var x = document.getElementById("snackbar");
+    x.innerHTML="Entry updated succesfully"
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+  }
+ 
+}
+
 ////////////////////////////////////////////editData/////////////////////////////////////////////////////////////////////////////////////////////////////
 $('#saveChanges').on( 'click', function () {
   if (confirm('Save your changes?')) {
@@ -308,9 +337,28 @@ $('#deleteEntry').on( 'click', function () {
 </script>
 
 
+<!-- PHP script which checks for session variables---------------------- -->
+<?php        
+
+if (isset($_SESSION['add_success'])) {
+  echo "<script> SnackbarMessage('add'); </script>";
+  unset($_SESSION['add_success']);
+} 
+
+if (isset($_SESSION['delete_success'])) {
+  echo "<script> SnackbarMessage('delete'); </script>";
+  unset($_SESSION['delete_success']);
+}
+
+if (isset($_SESSION['update_success'])) {
+  echo "<script> SnackbarMessage('update'); </script>";
+  unset($_SESSION['update_success']);
+}
+
+?>
+
+
 <!-- ------------ ------------------------------------------------------------------------------------->
 </body>
 
 </html>
-
-

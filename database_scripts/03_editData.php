@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "01_database_connection.php"; 
 
 
@@ -15,6 +16,7 @@ if (isset($_POST["deleteEntry"])){
         }else {
                 mysqli_stmt_bind_param($statement,"s", $hiddenID);
                 mysqli_stmt_execute($statement);
+                $_SESSION['delete_success'] = True;
                 header("Location: ../index.php?delete=success");
         }
 
@@ -116,7 +118,7 @@ if (isset($_POST["saveChanges"])){
         }else {
                 mysqli_stmt_bind_param($statement,"ssssssssssss", $name,$BPM,$SongKey,$I,$II,$III,$IV,$V,$VI,$VII,$VIII,$hiddenID);
                 mysqli_stmt_execute($statement);
-
+                $_SESSION['update_success'] = True;
                 header("Location: ../index.php?update=success");
         }
                               

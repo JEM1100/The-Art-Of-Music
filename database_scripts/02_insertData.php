@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "01_database_connection.php"; 
 
 
@@ -84,9 +85,12 @@ if (!mysqli_stmt_prepare($statement,$sql)){
 }else {
         mysqli_stmt_bind_param($statement,"sssssssssss", $name,$BPM,$SongKey,$I,$II,$III,$IV,$V,$VI,$VII,$VIII);
         mysqli_stmt_execute($statement);
+        $_SESSION['add_success'] = True;
+        header("Location: ../index.php?insert=success");
+
 }
 
-header("Location: ../index.php?insert=success");
+
         
      
         
