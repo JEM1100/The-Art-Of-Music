@@ -317,22 +317,22 @@ function SnackbarMessage(sessionVariable) {
 }
 
 ////////////////////////////editData//////////////////////////////////////////////////////////
-$('#saveChanges').on( 'click', function () {
+$('#saveChanges').on( 'click', function (event) {
   if (confirm('Save your changes?')) {
     document.forms["editForm"].submit();
   
 } else {
-  // Do nothing
+  event.preventDefault();
 }
 } );
 
 
-$('#deleteEntry').on( 'click', function () {
+$('#deleteEntry').on( 'click', function (event) {
   if (confirm('Are you sure you want to delete this entry?')) {
     document.forms["editForm"].submit();
   
 } else {
-  // Do nothing
+  event.preventDefault();
 }
 } );
     
