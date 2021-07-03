@@ -32,7 +32,8 @@ include_once "database_scripts/01_database_connection.php";
   
 </head>
 <!------------------------------------------------BODY---------------------------------------------------------->
-<body>
+<body background="img/background1.jpg">
+<h1 class="heading1">The Art of Music</h1>
 
 <!--------------------------------------CHORD SEARCH DROPDOWN MENU---------------------------------------------------------->
 

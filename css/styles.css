@@ -90,6 +90,13 @@ visibility: visible;
 animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
+.heading1{
+  color:rgba(42, 44, 43, 0.952);
+  text-align: center;
+  text-shadow: 1px black;
+  margin-bottom:5px;
+}
+
 @-webkit-keyframes fadein {
 from {bottom: 0; opacity: 0;} 
 to {bottom: 30px; opacity: 1;}
