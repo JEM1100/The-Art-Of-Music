@@ -11,7 +11,7 @@ include_once "database_scripts/01_database_connection.php";
 <head>     
   <title>The Art of Music</title> 
 
-  <!-- css file -->
+  <!-- css-->
   <link rel="stylesheet" href="css/styles.css">  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -171,6 +171,8 @@ include_once "database_scripts/01_database_connection.php";
 
     
   </tbody>
+
+  <!----------------------- Table Footer for adding database records------------------------- -->
   <tfoot>
     <tr>
     
@@ -194,7 +196,7 @@ include_once "database_scripts/01_database_connection.php";
 </table>
 </form>
 
-<!-- The Modal ------------------------------------------------------->
+<!-- ---------------------------Modal Window for editing and deleting database records ------------------------------------------------------->
 <div id="myModal" class="modal">
   <!-- Modal content -->
   <div class="modal-content">
@@ -242,20 +244,20 @@ include_once "database_scripts/01_database_connection.php";
 
 </div>
 
-<!-------------------------------- Snackbar----------------------------------------------------- -->
+<!---Snackbar which displays confirmation messages after adding, updating or deleting database records----------------------------------------------------- -->
 <div id="snackbar"></div>
 
 
-<!------------------------------------------ JavaScript------------------------------------------------->
+<!------------------------------------------ JavaScript------------------------------------------------------->
      
 <script>
 
-// <!-- calling jquery ready function to initialise  jquery table  --> 
+//calling jquery ready function to initialise  jquery table///////////
   $(document).ready(function(){  
     $('#table1').DataTable();  
   });  
 
-// Edit Event when Clicked on Edit Icon --> 
+///////////////// display edit/delete Modal when clicked on edit icon/////////////////////////////// 
 var table=$('#table1').DataTable(); 
 var modal = document.getElementById("myModal");
 var span = document.getElementsByClassName("close")[0];
@@ -290,7 +292,7 @@ window.onclick = function(event) {
   }
 }
 
-////////////////////////////////////////////////SnackBar Function//////////////////////////////////////////////////
+////////////////SnackBar Function/////////////////////////////
 
 function SnackbarMessage(sessionVariable) {
   if (sessionVariable=="add"){
@@ -314,13 +316,13 @@ function SnackbarMessage(sessionVariable) {
  
 }
 
-////////////////////////////////////////////editData/////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////editData//////////////////////////////////////////////////////////
 $('#saveChanges').on( 'click', function () {
   if (confirm('Save your changes?')) {
     document.forms["editForm"].submit();
   
 } else {
-  // Do nothing!
+  // Do nothing
 }
 } );
 
@@ -330,14 +332,18 @@ $('#deleteEntry').on( 'click', function () {
     document.forms["editForm"].submit();
   
 } else {
-  // Do nothing!
+  // Do nothing
 }
 } );
     
 </script>
 
 
-<!-- PHP script which checks for session variables---------------------- -->
+
+
+
+
+<!---------------------------------------- PHP script which checks for session variables--------------------------------------------------- -->
 <?php        
 
 if (isset($_SESSION['add_success'])) {
