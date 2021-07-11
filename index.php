@@ -189,6 +189,7 @@ include_once "database_scripts/01_database_connection.php";
         <td><input type="text" name="VI" placeholder="VI"></td>
         <td><input type="text" name="VII" placeholder="VII"></td>
         <td><input type="text" name="VIII" placeholder="VIII"></td>
+        <td></td>
         
   
 

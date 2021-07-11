@@ -2,6 +2,10 @@
   white-space: nowrap;
 }
 
+table.dataTable thead, tfoot {
+  background-color: rgba(4, 58, 252, 0.788);
+}
+
 
 #table1 td{
   text-align:center;
