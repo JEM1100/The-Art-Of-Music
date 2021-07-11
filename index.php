@@ -66,7 +66,7 @@ include_once "database_scripts/01_database_connection.php";
 <p></p>
 
 <!-----------------------------------------------MAIN TABLE---------------------------------------------------------->
-<form action="database_scripts/02_insertData.php" method="POST">
+<form id="addEntryForm" action="database_scripts/02_insertData.php" method="POST">
 <table id="table1" class="display">
   <thead>
     <tr>
@@ -177,7 +177,7 @@ include_once "database_scripts/01_database_connection.php";
   <tfoot>
     <tr>
     
-        <td><button type="submit" name="submit">Add</button></td> 
+        <td><button id="addData" type="submit" name="addData">Add</button></td> 
         <td><input type="text" id="fucker" name="name" placeholder="Name"></td>
         <td><input type="number" name="BPM" placeholder="BPM"></td>
         <td><input type="text" name="Song_Key" placeholder="Key"></td>
@@ -316,6 +316,18 @@ function SnackbarMessage(sessionVariable) {
   }
  
 }
+
+////////////////////////////addEntry//////////////////////////////////////////////////////////
+$('#addData').on( 'click', function (event) {
+  if (confirm('Add this Entry?')) {
+    document.forms["addEntryForm"].submit();
+  
+} else {
+  event.preventDefault();
+}
+} );
+
+
 
 ////////////////////////////editData//////////////////////////////////////////////////////////
 $('#saveChanges').on( 'click', function (event) {
