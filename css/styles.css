@@ -1,3 +1,11 @@
+#chordSearch{
+  text-align: right;
+}
+
+#chordSearch select{
+  width: 100px;
+
+}
 #table1{
   white-space: nowrap;
 }
@@ -6,6 +14,11 @@ table.dataTable thead, tfoot {
   background-color: rgba(4, 58, 252, 0.788);
 }
 
+
+
+#addEntryForm{
+  background-color: rgba(245, 245, 245, 0.884);
+}
 
 #table1 td{
   text-align:center;

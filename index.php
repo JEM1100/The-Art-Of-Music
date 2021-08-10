@@ -37,8 +37,8 @@ include_once "database_scripts/01_database_connection.php";
 
 <!--------------------------------------CHORD SEARCH DROPDOWN MENU---------------------------------------------------------->
 
-<form action="index.php" method="POST">
-  <label>Look for a chord</label>
+<form action="index.php" id="chordSearch" method="POST">
+  <button type="submit" name="submit">Chord Search</button>
   <select name="chords" id="chords">
   <?php
          $sql="SELECT DISTINCT I,II,III,IV,V,VI,VII,VIII FROM songs_chords;";      
@@ -61,9 +61,7 @@ include_once "database_scripts/01_database_connection.php";
         }
   ?>
   </select>
-  <button type="submit" name="submit">Search</button>
 </form>
-<p></p>
 
 <!-----------------------------------------------MAIN TABLE---------------------------------------------------------->
 <form id="addEntryForm" action="database_scripts/02_insertData.php" method="POST">
@@ -260,7 +258,7 @@ include_once "database_scripts/01_database_connection.php";
   });  
 
 ///////////////// display edit/delete Modal when clicked on edit icon/////////////////////////////// 
-var table=$('#table1').DataTable(); 
+    
 var modal = document.getElementById("myModal");
 var span = document.getElementsByClassName("close")[0];
 
