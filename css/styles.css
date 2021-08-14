@@ -1,3 +1,14 @@
+/*------------------------------------------ Heading -------------------------------------------------------*/
+
+.heading1{
+  color:rgba(42, 44, 43, 0.952);
+  text-align: center;
+  text-shadow: 1px black;
+  margin-bottom:5px;
+}
+
+/* ------------------------------------Chord Dropdown Search -------------------------------------------------*/
+
 #chordSearch{
   text-align: right;
 }
@@ -6,18 +17,11 @@
   width: 100px;
 
 }
+
+/* ----------------------------------------- Main Table  ----------------------------------------------------------*/
+
 #table1{
   white-space: nowrap;
-}
-
-table.dataTable thead, tfoot {
-  background-color: rgba(4, 58, 252, 0.788);
-}
-
-
-
-#addEntryForm{
-  background-color: rgba(245, 245, 245, 0.884);
 }
 
 #table1 td{
@@ -29,6 +33,14 @@ table.dataTable thead, tfoot {
   box-sizing: border-box;
 }
 
+table.dataTable thead, tfoot {
+  background-color: rgba(4, 58, 252, 0.788);
+}
+
+#addEntryForm{
+  background-color: rgba(245, 245, 245, 0.884);
+}
+
 input {
   text-align: center;
 }
@@ -37,21 +49,22 @@ input {
   cursor: pointer;
 }
 
+/*--------------------------------------------- Modal Window ----------------------------------------------*/
+
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  display: none;
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
 }
 
-/* Modal Content */
 .modal-content {
   background-color: #fefefe;
   margin: auto;
@@ -59,7 +72,6 @@ input {
   border: 1px solid #888;
 }
 
-/* The Close Button */
 .close {
   color: #aaaaaa;
   float: right;
@@ -76,7 +88,6 @@ input {
 
 .editInput{
 width:100px;
-
 }
 
 .iconEdit{
@@ -84,6 +95,8 @@ padding-left:15px;
 padding-right:15px;
 cursor:pointer;
 }
+
+/*------------------------------------------ Snackbar Message ------------------------------------------------*/
 
 #snackbar {
 visibility: hidden;
@@ -105,13 +118,6 @@ font-size: 17px;
 visibility: visible;
 -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
 animation: fadein 0.5s, fadeout 0.5s 2.5s;
-}
-
-.heading1{
-  color:rgba(42, 44, 43, 0.952);
-  text-align: center;
-  text-shadow: 1px black;
-  margin-bottom:5px;
 }
 
 @-webkit-keyframes fadein {
