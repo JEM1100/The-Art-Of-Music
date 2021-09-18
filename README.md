@@ -2,10 +2,10 @@
 
 A little Webpage that displays a data table with various information about songs. It allows users to add, edit and delete database records and filter songs by name, BPM, key and chords. 
 
-How to get started:
+## How to get started:
 1. Make sure you have the following programms installed:
-    XAMPP (https://www.apachefriends.org/index.html)
-    MySQL (https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/)
+    * XAMPP (https://www.apachefriends.org/index.html)
+    * MySQL (https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/)
 
 2. Copy or clone this github repository in the htdocs folder of XAMPP. On Windows machines, this folder can usually be found under "C:\xampp\htdocs". 
 3. Open the XAMPP Control Panel . Set up the local test server by starting the Apache and MySQl module. 
