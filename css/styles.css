@@ -1,11 +1,16 @@
 /*------------------------------------------ Heading -------------------------------------------------------*/
 
 .heading1{
-  color:rgba(42, 44, 43, 0.952);
+  background-image:linear-gradient(90deg,red, rgb(255, 255, 255),rgb(228, 247, 248),purple);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-align: center;
   text-shadow: 1px black;
   margin-bottom:5px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
+
+
 
 /* ------------------------------------Chord Dropdown Search -------------------------------------------------*/
 
@@ -34,7 +39,7 @@
 }
 
 table.dataTable thead, tfoot {
-  background-color: rgba(4, 58, 252, 0.788);
+  background-color: rgb(103,141,175);
 }
 
 #addEntryForm{
