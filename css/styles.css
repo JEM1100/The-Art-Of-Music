@@ -1,3 +1,10 @@
+/*------------------------------------------ Background -------------------------------------------------------*/
+body{
+  background-image: url(../img/background1.jpg);
+  background-size: 110%;
+}
+
+
 /*------------------------------------------ Heading -------------------------------------------------------*/
 
 .heading1{
@@ -75,6 +82,10 @@ input {
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
+}
+
+.editTable{
+  margin: 0 auto;
 }
 
 .close {

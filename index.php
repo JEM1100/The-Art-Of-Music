@@ -13,6 +13,10 @@ include_once "database_scripts/01_database_connection.php";
 
   <title>The Art of Music</title> 
 
+  <!-- Viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
   <!-- css-->
   <link rel="stylesheet" href="css/styles.css">  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -31,12 +35,14 @@ include_once "database_scripts/01_database_connection.php";
     type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js">
   </script> 
 
+
+
 </head>
 
 <!------------------------------------------------BODY---------------------------------------------------------->
-<body background="img/background1.jpg">
+<body>
 <h1 class="heading1">The Art of Music</h1>
-
+<div class="wrapper">
 <!--------------------------------------CHORD SEARCH DROPDOWN MENU---------------------------------------------------------->
 
 <form action="index.php" id="chordSearch" method="POST">
@@ -370,6 +376,7 @@ if (isset($_SESSION['update_success'])) {
 ?>
 
 <!-- ------------ ------------------------------------------------------------------------------------->
+</div>
 </body>
 
 </html>
