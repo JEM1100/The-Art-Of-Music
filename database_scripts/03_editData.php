@@ -2,7 +2,6 @@
 session_start();
 include_once "01_database_connection.php"; 
 
-
 $hiddenID=$_POST["hiddenID"];
 
 //////////////////////////////////////////////////////Delete Entry//////////////////////////////////////////////////////////////////////
@@ -122,6 +121,5 @@ if (isset($_POST["saveChanges"])){
                 header("Location: ../index.php?update=success");
         }
                               
-}
-       
+}      
 ?>

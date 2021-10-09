@@ -3,7 +3,6 @@ session_start();
 include_once "01_database_connection.php"; 
 
 
-
 if (!empty($_POST["name"])){ 
         $name=mysqli_real_escape_string($connection,$_POST["name"]);
 } else {
@@ -74,7 +73,6 @@ if (!empty($_POST["VIII"])){
         $VIII=NULL; 
 }
 
-
         
 $sql="INSERT INTO songs_chords(name,BPM,Song_Key,I,II,III,IV,V,VI,VII,VIII)  
 VALUES (?,?,?,?,?,?,?,?,?,?,?);"; 
@@ -88,12 +86,5 @@ if (!mysqli_stmt_prepare($statement,$sql)){
         $_SESSION['add_success'] = True;
         header("Location: ../index.php?insert=success");
 
-}
-
-
-        
-     
-        
-      
-        
+}    
 ?>
