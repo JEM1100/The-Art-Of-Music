@@ -1,6 +1,6 @@
-# Software Bill of Materials
+# Third Party Notice
     
-The following libraries are used in this application:
+The following libraries/files are used in this application:
 
 ## Font Awesome 4.7.0  -- https://fontawesome.com/v4.7/
 
@@ -19,3 +19,9 @@ Source Code licensed under MIT License (https://opensource.org/licenses/mit-lice
 Copyright 2008-2021, SpryMedia Ltd.
 
 Licensed under MIT License (https://opensource.org/licenses/mit-license.html)
+
+## Background Image 
+
+https://pixabay.com/de/illustrations/universum-partikel-schwingung-linie-1566161/
+
+Licensed under Pixbay License (https://pixabay.com/service/license/)
