@@ -1,4 +1,4 @@
-# theArtOfMusic
+# The Art Of Music
 
 A little Webpage that displays a data table with various information about songs. It allows users to add, edit and delete database records and filter songs by name, BPM, key and chords. 
 
