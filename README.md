@@ -11,6 +11,6 @@ A little Webpage that displays a data table with various information about songs
 3. Open the XAMPP Control Panel . Set up the local test server by starting the Apache and MySQl module. 
 4. Create a MySQL Database with the name "the_art_of_music" (https://www.geeksforgeeks.org/how-to-create-a-new-database-in-phpmyadmin/). Make sure to spell the database name correctly, otherwise the PHP script won't work)
 5. Populate the Database with the test data from the github repository "00_mysql_test_data.sql" (https://help.dreamhost.com/hc/en-us/articles/214395768-phpMyAdmin-How-to-import-a-database-or-table). 
-6. Open your web broswer, go to "localhost". Click on the link "theArtOfMusic".
+6. Open your web broswer, go to "localhost". Click on the link "The-Art-Of-Music/".
 7. That's it. You should now be able to add, edit and delete your own database records. 
 
