@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 12. Jun 2021 um 10:16
+-- Erstellungszeit: 31. Okt 2021 um 10:05
 -- Server-Version: 10.4.17-MariaDB
 -- PHP-Version: 8.0.0
 
@@ -55,10 +55,10 @@ INSERT INTO `songs_chords` (`id`, `name`, `BPM`, `Song_Key`, `I`, `II`, `III`, `
 (6, 'Johnny B. Goode', 168, 'Bb/Gm', 'Bb', 'Eb', 'F', NULL, NULL, NULL, NULL, NULL),
 (7, 'Voyager', 120, 'G/Em', 'D', 'C#m7 (add 11)', 'Cmaj7', 'C', NULL, NULL, NULL, NULL),
 (8, 'You Know How We Do It', 186, 'C#/Bbm', 'Ebm7', 'Bbm7', NULL, NULL, NULL, NULL, NULL, NULL),
-(9, 'Smells Like Teen Spirit', 117, 'Ab/Fm', 'F5', 'Ab5', 'Db5', 'Gb5', NULL, NULL, NULL, NULL),
+(9, 'Smells Like Teen Spirit', 117, 'Ab/Fm', 'F5', 'Bb5', 'Ab5', 'Db5', 'Gb5', NULL, NULL, NULL),
 (10, 'Naive', 103, 'B/G#m', 'Abm', 'Ab7sus4', 'E', 'Gb', 'B', 'Gb7', 'Esus2', 'Ebm7'),
 (11, 'Supersonic', 103, 'A/F#m', 'Gbm', 'Am', 'Bm', 'E', 'D', 'Db7', NULL, NULL),
-(12, 'La Camisa Negra', 96, 'A/F#m', 'Gbm', 'Db7', 'Bm', 'Gb', 'Abm', 'Bbm', 'B', NULL),
+(12, 'La Camisa Negra', 192, 'A/F#m', 'Gbm', 'Db7', 'Bm', 'Gb', 'Abm', 'Bbm', 'B', NULL),
 (13, 'Applaus Applaus', 182, 'G/Em', 'G', 'D', 'Em', 'C', NULL, NULL, NULL, NULL),
 (14, 'More Than Ever', 145, 'Ab/Fm', 'Fm', 'Bbm', 'Cm', NULL, NULL, NULL, NULL, NULL),
 (15, 'Happy', 160, 'Ab/Fm', 'F7', 'Fm7', 'Bb', 'C', 'Dbmaj7', 'Cm7', NULL, NULL),
@@ -66,13 +66,7 @@ INSERT INTO `songs_chords` (`id`, `name`, `BPM`, `Song_Key`, `I`, `II`, `III`, `
 (17, 'You Give Love A Bad Name', 123, 'Eb/Cm', 'C5', 'Ab5', 'Bb5', 'Eb5', 'Bb', 'F', 'G', NULL),
 (18, 'This Love', 190, 'Eb/Cm', 'G7', 'Cm7', 'Fm7', 'Bb7', 'Ebmaj7', 'F7', 'Ab7', NULL),
 (19, 'When You Were Young', 130, 'B/G#m', 'E5', 'Gb5', 'Ab5', 'B5', 'E', 'Gb', 'Abm', 'B'),
-(20, 'Police Truck', 101, 'G/Em', 'Em7', 'Em6', 'Emb6', 'E', 'B5', 'Bb5', 'A5', 'G5'),
-(21, 'Courage to Grow', 140, 'B/G#m', 'Abm', 'Ebm', 'E', 'Dbm', 'Bbm', 'Fm', 'Gbm', NULL),
-(22, 'Corazon Espinado', 120, 'D/Bm', 'Bm', 'F#', 'Em', 'D', 'A', NULL, NULL, NULL),
-(23, 'Around The World (ATC)', 132, 'C/Am', 'Am', 'Em', 'F', 'G', 'Bbm', 'Fm', 'Gb', 'Ab'),
-(24, 'Bright Side of Life', 186, 'F/Dm', 'Dm', 'Bb', 'Am', 'G', 'C', 'Edim', NULL, NULL),
-(25, 'Red Flag', 183, 'C/Am', 'Am', 'C', 'Abdim', 'E7', 'F7', 'G7', 'Bb7', 'Fm'),
-(26, 'Under the Bridge', 170, 'E/C#m', 'D', 'Gb', 'E', 'B', 'Dbm', 'A', 'Emaj7', 'Gbm');
+(20, 'Police Truck', 101, 'G/Em', 'Em7', 'Em6', 'Emb6', 'E', 'B5', 'Bb5', 'A5', 'G5');
 
 --
 -- Indizes der exportierten Tabellen
@@ -92,7 +86,7 @@ ALTER TABLE `songs_chords`
 -- AUTO_INCREMENT für Tabelle `songs_chords`
 --
 ALTER TABLE `songs_chords`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
