@@ -50,19 +50,15 @@ include_once "database_scripts/01_database_connection.php";
   <select name="chords" id="chords">
   <?php
          $sql="SELECT DISTINCT I,II,III,IV,V,VI,VII,VIII FROM songs_chords;";      
-         $result=mysqli_query($connection,$sql);      
-         $resultCheck=mysqli_num_rows($result);  
+         $result=$connection->query($sql);      
          $testarray=array();  
-         if ($resultCheck > 0) {
-             while($row=mysqli_fetch_assoc($result)){
-               foreach($row as $column){
-                if (!in_array ( $column, $testarray)){
-                  $testarray[]=$column;
-                } 
-               } 
-             }  
-           }
- 
+          while($row=$result->fetch()){
+            foreach($row as $column){
+            if (!in_array ( $column, $testarray)){
+              $testarray[]=$column;
+            } 
+            } 
+          }  
         sort($testarray);
         foreach($testarray as $item){
             echo "<option>$item</option>";
@@ -108,70 +104,69 @@ include_once "database_scripts/01_database_connection.php";
 
         
 
-        $result=mysqli_query($connection,$sql);      //calling sql command
-        $resultCheck=mysqli_num_rows($result);    //checking whether the command returns a result
-        if ($resultCheck > 0) {
-            while($row=mysqli_fetch_assoc($result)){      //while loop necessary to display all results
-              echo "<tr>";
-                echo "<td>" . $row["id"]. "</td>";
-                echo "<td>" . $row["name"]. "</td>";
-                echo "<td>" . $row["BPM"]. "</td>";
-                echo "<td>" . $row["Song_Key"]. "</td>";
-                if ($row["I"]== $valueToSearch){
-                  echo "<td style='background-color: rgb(56, 243, 97);'>".$row["I"]."</td>"; 
-                } 
-                else{
-                  echo  "<td>" . $row["I"]. "</td>";
-                }
-                if ($row["II"]== $valueToSearch){
-                  echo "<td style='background-color: rgb(56, 243, 97);'>".$row["II"]."</td>"; 
-                } 
-                else{
-                  echo  "<td>" . $row["II"]. "</td>";
-                }
-                if ($row["III"]== $valueToSearch){
-                  echo "<td style='background-color: rgb(56, 243, 97);'>".$row["III"]."</td>"; 
-                } 
-                else{
-                  echo  "<td>" . $row["III"]. "</td>";
-                }
-                if ($row["IV"]== $valueToSearch){
-                  echo "<td style='background-color: rgb(56, 243, 97);'>".$row["IV"]."</td>"; 
-                } 
-                else{
-                  echo  "<td>" . $row["IV"]. "</td>";
-                }
-                if ($row["V"]== $valueToSearch){
-                  echo "<td style='background-color: rgb(56, 243, 97);'>".$row["V"]."</td>"; 
-                } 
-                else{
-                  echo  "<td>" . $row["V"]. "</td>";
-                }
-                if ($row["VI"]== $valueToSearch){
-                  echo "<td style='background-color: rgb(56, 243, 97);'>".$row["VI"]."</td>"; 
-                } 
-                else{
-                  echo  "<td>" . $row["VI"]. "</td>";
-                }
-                if ($row["VII"]== $valueToSearch){
-                  echo "<td style='background-color: rgb(56, 243, 97);'>".$row["VII"]."</td>"; 
-                } 
-                else{
-                  echo  "<td>" . $row["VII"]. "</td>";
-                }
-                if ($row["VIII"]== $valueToSearch){
-                  echo "<td style='background-color: rgb(56, 243, 97);'>".$row["VIII"]."</td>"; 
-                } 
-                else{
-                  echo  "<td>" . $row["VIII"]. "</td>";
-                }
-                echo "<td class=\"td_icon\">
-                        <i id=\"icon1\"class=\"fa fa-pencil\" aria-hidden=\"true\"></i>
-                      </td>";
-              echo "</tr>";  
-
+        $result=$connection->query($sql);      
+        
+        while($row = $result->fetch()){    
+          echo "<tr>";
+            echo "<td>" . $row["id"]. "</td>";
+            echo "<td>" . $row["name"]. "</td>";
+            echo "<td>" . $row["BPM"]. "</td>";
+            echo "<td>" . $row["Song_Key"]. "</td>";
+            if ($row["I"]== $valueToSearch){
+              echo "<td style='background-color: rgb(56, 243, 97);'>".$row["I"]."</td>"; 
+            } 
+            else{
+              echo  "<td>" . $row["I"]. "</td>";
             }
+            if ($row["II"]== $valueToSearch){
+              echo "<td style='background-color: rgb(56, 243, 97);'>".$row["II"]."</td>"; 
+            } 
+            else{
+              echo  "<td>" . $row["II"]. "</td>";
+            }
+            if ($row["III"]== $valueToSearch){
+              echo "<td style='background-color: rgb(56, 243, 97);'>".$row["III"]."</td>"; 
+            } 
+            else{
+              echo  "<td>" . $row["III"]. "</td>";
+            }
+            if ($row["IV"]== $valueToSearch){
+              echo "<td style='background-color: rgb(56, 243, 97);'>".$row["IV"]."</td>"; 
+            } 
+            else{
+              echo  "<td>" . $row["IV"]. "</td>";
+            }
+            if ($row["V"]== $valueToSearch){
+              echo "<td style='background-color: rgb(56, 243, 97);'>".$row["V"]."</td>"; 
+            } 
+            else{
+              echo  "<td>" . $row["V"]. "</td>";
+            }
+            if ($row["VI"]== $valueToSearch){
+              echo "<td style='background-color: rgb(56, 243, 97);'>".$row["VI"]."</td>"; 
+            } 
+            else{
+              echo  "<td>" . $row["VI"]. "</td>";
+            }
+            if ($row["VII"]== $valueToSearch){
+              echo "<td style='background-color: rgb(56, 243, 97);'>".$row["VII"]."</td>"; 
+            } 
+            else{
+              echo  "<td>" . $row["VII"]. "</td>";
+            }
+            if ($row["VIII"]== $valueToSearch){
+              echo "<td style='background-color: rgb(56, 243, 97);'>".$row["VIII"]."</td>"; 
+            } 
+            else{
+              echo  "<td>" . $row["VIII"]. "</td>";
+            }
+            echo "<td class=\"td_icon\">
+                    <i id=\"icon1\"class=\"fa fa-pencil\" aria-hidden=\"true\"></i>
+                  </td>";
+          echo "</tr>";  
+
         }
+        
     ?>
 
   </tbody>

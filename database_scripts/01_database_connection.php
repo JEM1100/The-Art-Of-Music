@@ -4,5 +4,5 @@ $dbUsername="root";
 $dbPassword="";
 $dbName="the_art_of_music";
 
-$connection=mysqli_connect($dbServername,$dbUsername,$dbPassword, $dbName);    
+$connection=new PDO("mysql:host=$dbServername;dbname=$dbName", $dbUsername, $dbPassword);  
 ?>
