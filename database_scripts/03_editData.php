@@ -36,27 +36,6 @@ if (isset($_POST["deleteEntry"])){
 }
 
 
-///////////////////////////////////////////////Delete Compatible Songs Entry//////////////////////////////////////////////////////////////////////
-
-if (isset($_GET['v'])){
-        $deleteID=$_GET['v'];
-        $sql="DELETE FROM mix_songs WHERE mix_id=?"; 
-
-        $statement=$connection->prepare($sql);
-        $statement->execute(array($_GET['v']));
-        
-
-        $OriginalID=$_GET['v2'];
-        $sql2="DELETE FROM mix_songs WHERE 
-        (songs_chords_id=? AND mix_id=(?-1))
-        OR (songs_chords_id=? AND mix_id=(?+1))"; 
-
-        $statement2=$connection->prepare($sql2);
-        $statement2->execute(array($OriginalID,$deleteID,$OriginalID,$deleteID));
-        $_SESSION['delete_success'] = True;
-        header("Location: ../index.php?delete=success");
-}
-
 ////////////////////////////////////////////////////Save Changes/////////////////////////////////////////////////////////////////////
 
 if (isset($_POST["saveChanges"])){

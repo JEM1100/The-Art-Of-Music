@@ -5,7 +5,7 @@
 
 <?php     
 include_once "01_database_connection.php";                            
-$wantedID= $_GET['v'];
+$wantedID= $_GET['main_table_song_id'];
 
 $statement = $connection->prepare("SELECT * FROM mix_songs WHERE compatible_id = ?");
 $statement->execute(array($wantedID));  

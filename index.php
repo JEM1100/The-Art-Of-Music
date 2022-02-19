@@ -314,7 +314,7 @@ var span = document.getElementsByClassName("close")[0];
       } 
       
     }
-    objXMLHttpRequest.open("GET","database_scripts/04_compatibleSongsTable.php?v="+row_array[0],true);
+    objXMLHttpRequest.open("GET","database_scripts/04_compatibleSongsTable.php?main_table_song_id="+row_array[0],true);
     objXMLHttpRequest.send();
     
 
@@ -396,10 +396,10 @@ function addCompatibleSong(){
 
   // adding song to database
   var objXMLHttpRequestAdd = new XMLHttpRequest();
-  objXMLHttpRequestAdd.open("GET","database_scripts/05_addCompatibleSong.php?c="+compatibleSong+"&v="+originalID,true);
+  objXMLHttpRequestAdd.open("GET","database_scripts/05_addCompatibleSong.php?compatible_song_name="+compatibleSong+"&main_table_song_id="+originalID,true);
   objXMLHttpRequestAdd.send();
 
-  //Aupdate compatibeSongsTable as sonn as delete request has been finished
+  //update compatibeSongsTable as sonn as delete request has been finished
   objXMLHttpRequestAdd.onload = function () {
   var objXMLHttpRequestUpdate = new XMLHttpRequest();
   objXMLHttpRequestUpdate.onreadystatechange = function() {
@@ -407,7 +407,7 @@ function addCompatibleSong(){
       document.getElementById("AJAXContent").outerHTML=objXMLHttpRequestUpdate.responseText; 
     }  
   }
-  objXMLHttpRequestUpdate.open("GET","database_scripts/04_compatibleSongsTable.php?v="+originalID,true);
+  objXMLHttpRequestUpdate.open("GET","database_scripts/04_compatibleSongsTable.php?main_table_song_id="+originalID,true);
   objXMLHttpRequestUpdate.send();
 };
 }
@@ -416,7 +416,7 @@ function addCompatibleSong(){
 
 function deleteCompatibleSong(DeleteID, OriginalID) {
   var objXMLHttpRequestDelete = new XMLHttpRequest();
-  objXMLHttpRequestDelete.open("GET","database_scripts/03_editData.php?v="+DeleteID+"&v2="+OriginalID,true);
+  objXMLHttpRequestDelete.open("GET","database_scripts/06_deleteCompatibleSong.php?compatible_song_id="+DeleteID+"&main_table_song_id="+OriginalID,true);
   objXMLHttpRequestDelete.send();
 
    //update compatibeSongsTable as sonn as delete request has been finished
@@ -427,7 +427,7 @@ function deleteCompatibleSong(DeleteID, OriginalID) {
         document.getElementById("AJAXContent").outerHTML=objXMLHttpRequestUpdate.responseText; 
       }  
     }
-    objXMLHttpRequestUpdate.open("GET","database_scripts/04_compatibleSongsTable.php?v="+OriginalID,true);
+    objXMLHttpRequestUpdate.open("GET","database_scripts/04_compatibleSongsTable.php?main_table_song_id="+OriginalID,true);
     objXMLHttpRequestUpdate.send();
   };
    
