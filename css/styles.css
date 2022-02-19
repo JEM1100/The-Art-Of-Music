@@ -60,6 +60,7 @@ input {
   cursor: pointer;
 }
 
+
 /*--------------------------------------------- Modal Window ----------------------------------------------*/
 
 .modal {
@@ -108,6 +109,22 @@ width:100px;
 padding-left:15px;
 padding-right:15px;
 cursor:pointer;
+}
+
+.MixView{
+  text-align: center;
+}
+#AJAXcontent{
+  text-align:center;
+}
+
+#compatibleSongsTable{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#icon2, #icon3  {
+  cursor: pointer;
 }
 
 /*------------------------------------------ Snackbar Message ------------------------------------------------*/

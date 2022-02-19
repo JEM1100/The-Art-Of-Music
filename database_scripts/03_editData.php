@@ -7,10 +7,52 @@ $hiddenID=$_POST["hiddenID"];
 //////////////////////////////////////////////////////Delete Entry//////////////////////////////////////////////////////////////////////
 
 if (isset($_POST["deleteEntry"])){
-        $sql="DELETE FROM songs_chords WHERE id=?"; 
+       
+        try{
+                $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $connection->beginTransaction();
+
+                // delete all compatible song entries with foreign key constraints
+                $sql1="DELETE FROM mix_songs WHERE songs_chords_id=? OR compatible_id=?";
+                $statement1=$connection->prepare($sql1);
+                $statement1->execute(array($hiddenID,$hiddenID));
+        
+                //delete the song in main table
+                $sql2="DELETE FROM songs_chords WHERE id=?"; 
+                $statement2=$connection->prepare($sql2);
+                $statement2->execute(array($hiddenID));
+
+                $connection->commit();
+                $_SESSION['delete_success'] = True;
+                header("Location: ../index.php?delete=success");
+
+        }
+
+        catch (Exception $e){
+                $connection->rollback();
+                echo "Failed: " . $e->getMessage();
+              }
+       
+}
+
+
+///////////////////////////////////////////////Delete Compatible Songs Entry//////////////////////////////////////////////////////////////////////
+
+if (isset($_GET['v'])){
+        $deleteID=$_GET['v'];
+        $sql="DELETE FROM mix_songs WHERE mix_id=?"; 
 
         $statement=$connection->prepare($sql);
-        $statement->execute(array($hiddenID));
+        $statement->execute(array($_GET['v']));
+        
+
+        $OriginalID=$_GET['v2'];
+        $sql2="DELETE FROM mix_songs WHERE 
+        (songs_chords_id=? AND mix_id=(?-1))
+        OR (songs_chords_id=? AND mix_id=(?+1))"; 
+
+        $statement2=$connection->prepare($sql2);
+        $statement2->execute(array($OriginalID,$deleteID,$OriginalID,$deleteID));
         $_SESSION['delete_success'] = True;
         header("Location: ../index.php?delete=success");
 }

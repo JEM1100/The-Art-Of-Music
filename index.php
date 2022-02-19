@@ -237,6 +237,37 @@ include_once "database_scripts/01_database_connection.php";
         </tbody>
       </table>
       </form>
+
+      <!-- Compatible Songs Table -->
+      <div class="MixView">
+        <h2>Compatible Songs</h2>
+        <button id="icon3" onclick="addCompatibleSong()"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+        <select name="mix_songs" id="mix_songs">
+        <option></option>
+        <?php
+         $sql="SELECT name FROM songs_chords;";      
+         $result=$connection->query($sql);      
+         $testarray=array();  
+          while($row=$result->fetch()){
+            foreach($row as $column){
+            if (!in_array ( $column, $testarray)){
+              $testarray[]=$column;
+            } 
+            } 
+          }  
+        sort($testarray);
+        foreach($testarray as $item){
+            echo "<option>$item</option>";
+        }
+      ?>
+      </select>
+
+          <div id="AJAXContent">
+            <!-- this content is generated with the AJAX request -->
+          </div>
+      </div>
+
+      
   </div>
 
 </div>
@@ -275,8 +306,19 @@ var span = document.getElementsByClassName("close")[0];
     document.getElementById("editVII").value = row_array[10];
     document.getElementById("editVIII").value = row_array[11];
 
+    // AJAX Request for Compatible Song Table
+    var objXMLHttpRequest = new XMLHttpRequest();
+    objXMLHttpRequest.onreadystatechange = function() {
+      if(objXMLHttpRequest.readyState == 4 && objXMLHttpRequest.status == 200) {
+        document.getElementById("AJAXContent").outerHTML=objXMLHttpRequest.responseText; 
+      } 
+      
+    }
+    objXMLHttpRequest.open("GET","database_scripts/04_compatibleSongsTable.php?v="+row_array[0],true);
+    objXMLHttpRequest.send();
+    
 
-} );
+  } );
 
 span.onclick = function() {
   modal.style.display = "none";
@@ -325,7 +367,7 @@ $('#addData').on( 'click', function (event) {
 
 
 
-//////////////////////////// editData //////////////////////////////////////////////////////////
+//////////////////////////// editEntry //////////////////////////////////////////////////////////
 $('#saveChanges').on( 'click', function (event) {
   if (confirm('Save your changes?')) {
     document.forms["editForm"].submit();
@@ -335,7 +377,7 @@ $('#saveChanges').on( 'click', function (event) {
 }
 } );
 
-//////////////////////////// delete Data //////////////////////////////////////////////////////////
+//////////////////////////// deleteEntry//////////////////////////////////////////////////////////
 $('#deleteEntry').on( 'click', function (event) {
   if (confirm('Are you sure you want to delete this entry?')) {
     document.forms["editForm"].submit();
@@ -344,6 +386,53 @@ $('#deleteEntry').on( 'click', function (event) {
   event.preventDefault();
 }
 } );
+
+////////////////////////////Add Compatible Song/////////////////////////////////////////
+function addCompatibleSong(){
+  var selectBox = document.getElementById("mix_songs");
+  var compatibleSong = selectBox.value;
+  var originalID=document.getElementById("hiddenID").value;
+
+
+  // adding song to database
+  var objXMLHttpRequestAdd = new XMLHttpRequest();
+  objXMLHttpRequestAdd.open("GET","database_scripts/05_addCompatibleSong.php?c="+compatibleSong+"&v="+originalID,true);
+  objXMLHttpRequestAdd.send();
+
+  //Aupdate compatibeSongsTable as sonn as delete request has been finished
+  objXMLHttpRequestAdd.onload = function () {
+  var objXMLHttpRequestUpdate = new XMLHttpRequest();
+  objXMLHttpRequestUpdate.onreadystatechange = function() {
+    if(objXMLHttpRequestUpdate.readyState == 4 && objXMLHttpRequestUpdate.status == 200) {
+      document.getElementById("AJAXContent").outerHTML=objXMLHttpRequestUpdate.responseText; 
+    }  
+  }
+  objXMLHttpRequestUpdate.open("GET","database_scripts/04_compatibleSongsTable.php?v="+originalID,true);
+  objXMLHttpRequestUpdate.send();
+};
+}
+
+////////////////////////////Delete Compatible Song/////////////////////////////////////////
+
+function deleteCompatibleSong(DeleteID, OriginalID) {
+  var objXMLHttpRequestDelete = new XMLHttpRequest();
+  objXMLHttpRequestDelete.open("GET","database_scripts/03_editData.php?v="+DeleteID+"&v2="+OriginalID,true);
+  objXMLHttpRequestDelete.send();
+
+   //update compatibeSongsTable as sonn as delete request has been finished
+  objXMLHttpRequestDelete.onload = function () {
+    var objXMLHttpRequestUpdate = new XMLHttpRequest();
+    objXMLHttpRequestUpdate.onreadystatechange = function() {
+      if(objXMLHttpRequestUpdate.readyState == 4 && objXMLHttpRequestUpdate.status == 200) {
+        document.getElementById("AJAXContent").outerHTML=objXMLHttpRequestUpdate.responseText; 
+      }  
+    }
+    objXMLHttpRequestUpdate.open("GET","database_scripts/04_compatibleSongsTable.php?v="+OriginalID,true);
+    objXMLHttpRequestUpdate.send();
+  };
+   
+
+}
     
 </script>
 
