@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 31. Okt 2021 um 10:05
+-- Erstellungszeit: 30. Apr 2022 um 11:19
 -- Server-Version: 10.4.17-MariaDB
 -- PHP-Version: 8.0.0
 
@@ -20,6 +20,19 @@ SET time_zone = "+00:00";
 --
 -- Datenbank: `the_art_of_music`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `mix_songs`
+--
+
+CREATE TABLE `mix_songs` (
+  `mix_id` int(11) NOT NULL,
+  `songs_chords_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `compatible_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
